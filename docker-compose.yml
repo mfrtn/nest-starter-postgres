@@ -7,11 +7,19 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - starter:/var/lib/postgresql/data
+      - postgres_starter:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-
+  redis:
+    image: redis
+    container_name: redis_starter
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      
 volumes:
-  starter: 
+  postgres_starter:
+  redis-data:
