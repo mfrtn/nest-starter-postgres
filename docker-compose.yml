@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  postgresDB: 
+    image: postgres
+    container_name: postgres_starter
+    ports:
+      - 5432:5432
+    volumes:
+      - starter:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+volumes:
+  starter: 
